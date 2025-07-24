@@ -1,0 +1,79 @@
+Query for nodes
+#return all nodes
+MATCH (n) RETURN n
+
+#filter for specific node
+MATCH (player:PLAYER) RETURN player
+
+#all nodes and edges
+MATCH (n)-[r]->(p) 
+RETURN n, r, p
+
+#filter specifically for lebron node
+MATCH (player:PLAYER)
+WHERE player.name = "LeBron James"
+RETURN player
+
+or
+
+MATCH (player:PLAYER {name: "LeBron James", height: 2.1 })
+RETURN player
+
+#filter for not lebron
+MATCH (player:PLAYER)
+WHERE player.name <> "LeBron James" #not lebron
+RETURN player
+
+#order by descending height
+MATCH (player:PLAYER)
+RETURN player
+ORDER BY player.height DESC
+
+
+
+
+
+Query for relationships
+#getting all lebron's teammates who earn more than 4,000,000
+MATCH (lebron:PLAYER {name: "LeBron James"}) - [relation:TEAMMATES] -> (player2:PLAYER) 
+MATCH (player2) - [relation2:PLAYS_FOR] -> (team:TEAM)
+WHERE relation2.salary >= 4000000
+RETURN player2
+
+
+
+
+
+Aggregation
+MATCH (player:PLAYER) - [gamePlayed:PLAYED_AGAINST] → (:TEAM)
+RETURN player. name, COUNT(gamePlayed)
+
+
+
+
+
+
+Delete
+#delete node
+MATCH (ja {name: "Ja Morant"})
+DETACH DELETE ja
+
+#delete relationships
+MATCH (joel {name: "Joel Embiid"}) - [rel:PLAYS_FOR] -> (:TEAM)
+DELETE rel
+
+#delete everything
+MATCH (n) DETACH DELETE n
+
+
+Create
+#Create Node
+CREATE (lebron:PLAYER:COACH:GENERAL_MANAGER {name: "Lebron James", height: 2.1})
+RETURN lebron
+
+#Create relationship + node
+CREATE (anthony:PLAYER {name: "Anthony Davis"}) - [:PLAYS_FOR {salary: 24000000}] -> (:TEAM {name: "LA Lakers"})
+
+#Create relationship
+MATCH (lebron:PLAYER {name: "LeBron James"}), (lakers: TEAM {name: "LA Lakers"})
+CREATE (lebron) - [:PLAYS_FOR{salary: 40000000}] -> (lakers)
