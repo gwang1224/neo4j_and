@@ -2,85 +2,102 @@ from neo4j import GraphDatabase
 from neo4j.exceptions import ServiceUnavailable, Neo4jError
 import json
 
-# Importing data into Neo4j, ref: https://neo4j.com/docs/python-manual/current/
-URI = "neo4j://127.0.0.1:7687"
-AUTH = ("neo4j", "and123$$")
+class Neo4jImportData:
 
-# Replace with the name of your database
-database_name = "neo4j"
-
-try:
-    driver = GraphDatabase.driver(URI, auth=AUTH)
-    driver.verify_connectivity()
-    print("Connection to Neo4j database successful!")
-except ServiceUnavailable as e:
-    print(f"Connection failed: {e}")
-
-
-def publication_as_nodes(driver, json_path, db):
-    """
-    Adds each publication as a node with metadata id, title, year, authors
-
-    Args
-        driver (Object): neo4j
-        json_path (str): OpenAlex data... see cache
-    """
-    with open(json_path,'r') as file:
-        data = json.load(file)
-
-    for work in data['works_data']:
-        id, title, year, authors = (
-            data['works_data'][work][k] for k in ['id', 'title', 'year', 'authors']
-        )
+    def __init__(self, uri, user, password, db, data_path):
+        """
+        Args
+            uri (str): neo4j uri
+            user (str): instance username
+            password (str): instance password
+            db (str): database name
+            data_path (str): OpenAlex data in json format... see cache and neo4j_data.py
+        """
         try:
-            summary = driver.execute_query("""
-                CREATE (n:PUBLICATION {id: $pub_id, title: $pub_title, year: $pub_year})
-                """,
-                pub_id = id, pub_title = title, pub_year = year,
-                database = db,
-            ).summary
-            print("Added {nodes_created} nodes in {time} ms.".format(
-                nodes_created = summary.counters.nodes_created,
-                time = summary.result_available_after
-            ))
+            self.driver = GraphDatabase.driver(uri, auth=(user,password))
+            self.driver.verify_connectivity()
+            print("Connection to Neo4j database successful!")
+        except ServiceUnavailable as e:
+            print(f"Connection failed: {e}")
 
-            print("All nodes were successfully added.")
+        self.db = db
 
-        except KeyError as ke:
-            print(f"Missing key in work data: {ke}")
-        except Neo4jError as ne:
-            print(f"Neo4j error while inserting '{title}': {ne}")
-        except Exception as e:
-            print(f"Unexpected error: {e}")
+        with open(data_path,'r') as file:
+            self.data = json.load(file)
+
+    def close(self):
+        self.driver.close()
+
+    
+    def publication_as_nodes(self):
+        """
+        Adds each publication as a node with metadata id, title, year, authors
+        """
+        for work in self.data['works_data']:
+            id, title, year, authors, venue = (
+                self.data['works_data'][work][k] for k in ['id', 'title', 'year', 'authors', 'venue']
+            )
+
+            # Must convert authors data to json string
+            author_string = json.dumps(authors)
+
+            try:
+                summary = self.driver.execute_query("""
+                    CREATE (n:PUBLICATION {id: $pub_id, title: $pub_title, year: $pub_year, authors: $pub_authors, venue: $pub_venue})
+                    """,
+                    pub_id = id, pub_title = title, pub_year = year, pub_authors = author_string, pub_venue = venue,
+                    database = self.db,
+                ).summary
+                print("Added {nodes_created} nodes in {time} ms.".format(
+                    nodes_created = summary.counters.nodes_created,
+                    time = summary.result_available_after
+                ))
+
+            except KeyError as ke:
+                print(f"Missing key in work data: {ke}")
+            except Neo4jError as ne:
+                print(f"Neo4j error while inserting '{title}': {ne}")
+            except Exception as e:
+                print(f"Unexpected error: {e}")
+
+        print("All nodes were successfully added.")
 
 
-def node_count(driver, db):
-    """
-    Counts nodes 
-    """
-    result = driver.execute_query("""
-        MATCH (n) RETURN count(n) AS node_count
-    """,
-    database=db)
-    count = result.records[0]["node_count"]
-    print(f"Number of nodes: {count}")
+    def node_count(self):
+        """
+        Counts nodes 
+        """
+        result = self.driver.execute_query("""
+            MATCH (n) RETURN count(n) AS node_count
+        """,
+        database = self.db)
+        count = result.records[0]["node_count"]
+        print(f"Number of nodes: {count}")
 
 
-def delete_all_nodes(driver, db):
-    """
-    Deletes all nodes
-    """
-    driver.execute_query("""
-        MATCH (n) DETACH DELETE n
-    """,
-    database = db)
-    print("All nodes were successfully deleted.")
-    node_count(driver, db)
+    def delete_all_nodes(self):
+        """
+        Deletes all nodes
+        """
+        self.driver.execute_query("""
+            MATCH (n) DETACH DELETE n
+        """,
+        database = self.db)
+        print("All nodes were successfully deleted.")
+        self.node_count()
 
 
 if __name__ == "__main__":
-    # Testing using Russel Bowler data
-    publication_as_nodes(driver, "/Users/gracewang/Documents/UROP_Summer_2025/neo4j_and/cache/Russell Bowler_data.json", database_name)
-    node_count(driver, database_name)
-    delete_all_nodes(driver, database_name)
-    driver.close()
+
+    URI = "neo4j://127.0.0.1:7687"
+    USER = "neo4j"
+    PASSWORD = "and123$$"
+    DB = "neo4j"
+    PATH = "/Users/gracewang/Documents/UROP_Summer_2025/neo4j_and/cache/Russell Bowler_data.json"
+
+    imp = Neo4jImportData(URI, USER, PASSWORD, DB, PATH)
+    imp.delete_all_nodes()
+    imp.publication_as_nodes()
+    imp.node_count()
+    imp.delete_all_nodes()
+    imp.close()
