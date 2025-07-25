@@ -86,6 +86,38 @@ class Neo4jImportData:
         print("All nodes were successfully deleted.")
         self.node_count()
 
+    def add_covenue_edge(self):
+        """
+        Add connection between publications with shared venues
+        """
+        id_venue = {}
+        for work_data in self.data['works_data'].values():
+            id = work_data['id']
+            venue = work_data['venue']
+            id_venue[id] = venue
+
+        created_edges = 0
+
+        for pub1 in id_venue.keys():
+            for pub2 in id_venue.keys():
+                if pub1 != pub2:
+                    if id_venue[pub1] == id_venue[pub2]:
+                        #print(f"Trying edge between {pub1} and {pub2}, venue: {id_venue[pub1]}")
+                        self.driver.execute_query("""
+                            MATCH (p1:PUBLICATION {id: $pub_name1}), (p2:PUBLICATION {id: $pub_name2})
+                            CREATE (p1) - [:COVENUE {venue: $pub_venue}] -> (p2)
+                        """,
+                        pub_name1 = pub1, pub_name2 = pub2, pub_venue = id_venue[pub1],
+                        database = self.db
+                        )
+                        created_edges += 1
+        
+        print(f" Created {created_edges} CoVenue relationships.")
+
+
+
+
+
 
 if __name__ == "__main__":
 
@@ -100,4 +132,5 @@ if __name__ == "__main__":
     imp.publication_as_nodes()
     imp.node_count()
     imp.delete_all_nodes()
-    imp.close()
+    # imp.close()
+    imp.add_covenue_edge()
