@@ -78,6 +78,19 @@ class Neo4jImportData:
         count = result.records[0]["node_count"]
         print(f"Number of nodes: {count}")
 
+    def edge_count(self):
+        """
+        Counts edges (relationships) in the graph.
+        """
+        result = self.driver.execute_query(
+            """
+            MATCH ()-[r]->() RETURN COUNT(r) AS totalRelationships
+            """,
+            database=self.db
+        )
+        count = result.records[0]["totalRelationships"]
+        print(f"Total relationships: {count}")
+
 
     def delete_all_nodes(self):
         """
@@ -89,6 +102,7 @@ class Neo4jImportData:
         database = self.db)
         print("All nodes were successfully deleted.")
         self.node_count()
+
 
     def add_covenue_edge(self):
         """
@@ -170,8 +184,11 @@ class Neo4jImportData:
         print(f" Created {created_edges} CoAuthor relationships.")
 
 
-
-#Example: David (G/M) Nathan 
+    def add_cotitle_edge(self):
+        """
+        Adds a directional COTITLE edge from pub1 -> pub2 if they...
+        """
+        print("lol")
 
 
 if __name__ == "__main__":
@@ -188,5 +205,6 @@ if __name__ == "__main__":
     #imp.node_count()
     #imp.delete_all_nodes()
     # imp.close()
-    imp.add_covenue_edge()
+    #imp.add_covenue_edge()
     #imp.add_coauthor_edge()
+    imp.edge_count()
