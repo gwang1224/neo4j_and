@@ -92,7 +92,7 @@ class Neo4jImportData:
 
     def add_covenue_edge(self):
         """
-        Add connection between publications with shared venues
+        Adds a directional COVENUE edge from pub1 -> pub2 if they share publication venues
         """
         id_venue = {}
         for work_data in self.data['works_data'].values():
@@ -183,10 +183,10 @@ if __name__ == "__main__":
     PATH = "/Users/gracewang/Documents/UROP_Summer_2025/neo4j_and/cache/Russell Bowler_data.json"
 
     imp = Neo4jImportData(URI, USER, PASSWORD, DB, PATH)
-    imp.delete_all_nodes()
-    imp.publication_as_nodes()
+    #imp.delete_all_nodes()
+    #imp.publication_as_nodes()
     #imp.node_count()
     #imp.delete_all_nodes()
     # imp.close()
-    # imp.add_covenue_edge()
-    imp.add_coauthor_edge()
+    imp.add_covenue_edge()
+    #imp.add_coauthor_edge()
