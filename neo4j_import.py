@@ -204,7 +204,7 @@ if __name__ == "__main__":
     #imp.publication_as_nodes()
     #imp.node_count()
     #imp.delete_all_nodes()
-    # imp.close()
+    #imp.close()
     #imp.add_covenue_edge()
     #imp.add_coauthor_edge()
     imp.edge_count()
