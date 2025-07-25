@@ -45,7 +45,11 @@ class Neo4jImportData:
                 summary = self.driver.execute_query("""
                     CREATE (n:PUBLICATION {id: $pub_id, title: $pub_title, year: $pub_year, authors: $pub_authors, venue: $pub_venue})
                     """,
-                    pub_id = id, pub_title = title, pub_year = year, pub_authors = author_string, pub_venue = venue,
+                    pub_id = id, 
+                    pub_title = title, 
+                    pub_year = year, 
+                    pub_authors = author_string, 
+                    pub_venue = venue,
                     database = self.db,
                 ).summary
                 print("Added {nodes_created} nodes in {time} ms.".format(
@@ -98,25 +102,76 @@ class Neo4jImportData:
 
         created_edges = 0
 
-        for pub1 in id_venue.keys():
-            for pub2 in id_venue.keys():
-                if pub1 != pub2:
-                    if id_venue[pub1] == id_venue[pub2]:
-                        #print(f"Trying edge between {pub1} and {pub2}, venue: {id_venue[pub1]}")
-                        self.driver.execute_query("""
-                            MATCH (p1:PUBLICATION {id: $pub_name1}), (p2:PUBLICATION {id: $pub_name2})
-                            CREATE (p1) - [:COVENUE {venue: $pub_venue}] -> (p2)
-                        """,
-                        pub_name1 = pub1, pub_name2 = pub2, pub_venue = id_venue[pub1],
-                        database = self.db
-                        )
-                        created_edges += 1
+        pub_keys = list(id_venue.keys())
+        for i, pub1 in enumerate(pub_keys):
+            for pub2 in pub_keys[i+1:]:
+                if id_venue[pub1] == id_venue[pub2]:
+                    #print(f"Trying edge between {pub1} and {pub2}, venue: {id_venue[pub1]}")
+                    self.driver.execute_query("""
+                        MATCH (p1:PUBLICATION {id: $pub_name1}), (p2:PUBLICATION {id: $pub_name2})
+                        CREATE (p1) - [:COVENUE {venue: $pub_venue}] -> (p2)
+                    """,
+                    pub_name1 = pub1, 
+                    pub_name2 = pub2, 
+                    pub_venue = id_venue[pub1],
+                    database = self.db
+                    )
+                    created_edges += 1
         
         print(f" Created {created_edges} CoVenue relationships.")
 
 
+    def add_coauthor_edge(self):
+        """
+        Adds a directional COAUTHOR edge from pub1 -> pub2 if they share at least one author
+        """
+
+        works_data = self.data['works_data']
+
+        #print(works_data)
+        created_edges = 0
+
+        pub_keys = list(works_data.keys())
+        # Creates a set of pub1 authors
+        for i, pub1 in enumerate(pub_keys):
+            authors1 = works_data[pub1]['authors']
+            set1 = {(a['id'], a['name']) for a in authors1}
+
+            # Set of pub2 authors
+            for pub2 in pub_keys[i+1:]:
+                authors2 = works_data[pub2]['authors']
+                set2 = {(a['id'], a['name']) for a in authors2}
+
+                # Shared authors between two publications, including ambiguous name
+                shared_authors = set1 & set2
+
+                #### FUTURE: may need to create metric for number of shared authors for weighted edge
+                if shared_authors:
+                    shared_authors_json = [{"id": aid, "name": name} for (aid, name) in shared_authors]
+                    json_string = json.dumps(shared_authors_json)
+
+                    # Add weight for COAUTHOR (# of shared authors)
+                    weight = len(shared_authors)
+
+                    self.driver.execute_query(
+                        """
+                        MATCH (p1:PUBLICATION {id: $pub_name1}), (p2:PUBLICATION {id: $pub_name2})
+                        CREATE (p1)-[:COAUTHOR {coauthor: $pub_coauthor, weight: $weight}]->(p2)
+                        """,
+                        pub_name1=pub1,
+                        pub_name2=pub2,
+                        pub_coauthor=json_string,
+                        weight = weight,
+                        database=self.db
+                    )
+                    created_edges += 1
+                    print(f" Created {created_edges} relationships.")
+            
+        print(f" Created {created_edges} CoAuthor relationships.")
 
 
+
+#Example: David (G/M) Nathan 
 
 
 if __name__ == "__main__":
@@ -130,7 +185,8 @@ if __name__ == "__main__":
     imp = Neo4jImportData(URI, USER, PASSWORD, DB, PATH)
     imp.delete_all_nodes()
     imp.publication_as_nodes()
-    imp.node_count()
-    imp.delete_all_nodes()
+    #imp.node_count()
+    #imp.delete_all_nodes()
     # imp.close()
-    imp.add_covenue_edge()
+    # imp.add_covenue_edge()
+    imp.add_coauthor_edge()

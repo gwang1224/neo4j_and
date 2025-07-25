@@ -1,4 +1,3 @@
-Query for nodes
 #return all nodes
 MATCH (n) RETURN n
 
