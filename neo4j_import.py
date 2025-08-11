@@ -2,6 +2,9 @@ from neo4j import GraphDatabase
 from neo4j.exceptions import ServiceUnavailable, Neo4jError
 import json
 
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
+
 class Neo4jImportData:
 
     def __init__(self, uri, user, password, db, data_path):
@@ -33,6 +36,7 @@ class Neo4jImportData:
         """
         Adds each publication as a node with metadata id, title, year, authors
         """
+        count = 0
         for work in self.data['works_data']:
             id, title, year, authors, venue = (
                 self.data['works_data'][work][k] for k in ['id', 'title', 'year', 'authors', 'venue']
@@ -51,11 +55,7 @@ class Neo4jImportData:
                     pub_authors = author_string, 
                     pub_venue = venue,
                     database = self.db,
-                ).summary
-                print("Added {nodes_created} nodes in {time} ms.".format(
-                    nodes_created = summary.counters.nodes_created,
-                    time = summary.result_available_after
-                ))
+                )
 
             except KeyError as ke:
                 print(f"Missing key in work data: {ke}")
@@ -117,6 +117,7 @@ class Neo4jImportData:
         created_edges = 0
 
         pub_keys = list(id_venue.keys())
+        #print(pub_keys)
         for i, pub1 in enumerate(pub_keys):
             for pub2 in pub_keys[i+1:]:
                 if id_venue[pub1] == id_venue[pub2]:
@@ -142,7 +143,6 @@ class Neo4jImportData:
 
         works_data = self.data['works_data']
 
-        #print(works_data)
         created_edges = 0
 
         pub_keys = list(works_data.keys())
@@ -159,7 +159,6 @@ class Neo4jImportData:
                 # Shared authors between two publications, including ambiguous name
                 shared_authors = set1 & set2
 
-                #### FUTURE: may need to create metric for number of shared authors for weighted edge
                 if shared_authors:
                     shared_authors_json = [{"id": aid, "name": name} for (aid, name) in shared_authors]
                     json_string = json.dumps(shared_authors_json)
@@ -179,16 +178,59 @@ class Neo4jImportData:
                         database=self.db
                     )
                     created_edges += 1
-                    print(f" Created {created_edges} relationships.")
+                    #print(f" Created {created_edges} relationships.")
             
         print(f" Created {created_edges} CoAuthor relationships.")
 
+    def cotitle_pairs_tfidf(self, min_similarity=0.60):
+        """
+        Build TF-IDF vectors over titles and return (id1, id2, similarity) pairs
+        for all publication pairs with cosine >= min_similarity.
+        Uses a sparse similarity matrix to stay efficient.
+        """
+        works_data = self.data["works_data"]
+        pub_ids = list(works_data.keys())
+        titles = [works_data[pid].get("title") or "" for pid in pub_ids]
 
-    def add_cotitle_edge(self):
+        # TF-IDF over titles (English stopwords are fine here)
+        vec = TfidfVectorizer(stop_words="english")
+        X = vec.fit_transform(titles)
+
+        # Cosine similarity (sparse to avoid dense NxN when not needed)
+        S = cosine_similarity(X, dense_output=False)  # sparse csr_matrix
+
+        pairs = []
+        # Iterate only upper triangle (i < j) to create undirected pairs once
+        S_coo = S.tocoo()
+        for i, j, sim in zip(S_coo.row, S_coo.col, S_coo.data):
+            if i < j and sim >= min_similarity:
+                pairs.append((pub_ids[i], pub_ids[j], float(sim)))
+        return pairs
+
+
+    def add_cotitle_edge_from_pairs(self, pairs, threshold=0.60):
         """
-        Adds a directional COTITLE edge from pub1 -> pub2 if they...
+        Create one undirected COTITLE edge per (id1, id2, similarity) tuple if sim >= threshold.
+        Stores the similarity as relationship weight.
         """
-        print("lol")
+        created = 0
+        for id1, id2, sim in pairs:
+            if id1 == id2 or sim < threshold:
+                continue
+
+            a, b = (id1, id2) if id1 < id2 else (id2, id1)
+
+            self.driver.execute_query(
+                """
+                MATCH (p1:PUBLICATION {id: $a}), (p2:PUBLICATION {id: $b})
+                CREATE (p1)-[r:COTITLE {sim: $sim}]->(p2)
+                """,
+                a=a, b=b, sim=float(sim),
+                database=self.db
+            )
+            created += 1
+        print(f"Created {created} COTITLE edges (cosine ≥ {threshold}).")
+        
 
 
 if __name__ == "__main__":
@@ -197,14 +239,22 @@ if __name__ == "__main__":
     USER = "neo4j"
     PASSWORD = "and123$$"
     DB = "neo4j"
-    PATH = "/Users/gracewang/Documents/UROP_Summer_2025/neo4j_and/cache/Russell Bowler_data.json"
+    PATH = "/Users/gracewang/Documents/UROP_Summer_2025/neo4j_and/cache/David Nathan_data.json"
 
     imp = Neo4jImportData(URI, USER, PASSWORD, DB, PATH)
-    #imp.delete_all_nodes()
-    #imp.publication_as_nodes()
-    #imp.node_count()
-    #imp.delete_all_nodes()
-    #imp.close()
-    #imp.add_covenue_edge()
-    #imp.add_coauthor_edge()
+
+    imp.delete_all_nodes()
+
+    # Add all publications
+    imp.publication_as_nodes()
+
+    # Add covenue, coauthor, cotitle
+    imp.add_covenue_edge()
+    imp.add_coauthor_edge()
+
+    pairs = imp.cotitle_pairs_tfidf(min_similarity=0.60)
+    imp.add_cotitle_edge_from_pairs(pairs,threshold=0.60)
+
+    # Metrics
+    imp.node_count()
     imp.edge_count()
