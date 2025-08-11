@@ -1,6 +1,6 @@
 import openAlex_to_HGCN as oth
 
-author_name = "Russell Bowler"
+author_name = "David Nathan"
 
 #1. Fetch author data from OpenAlex
 author_data = oth.fetch_author_data(author_name)
