@@ -28,17 +28,9 @@ Notes
 import openAlex_to_HGCN as oth
 import argparse
 
-
-def main():
-    parser = argparse.ArgumentParser(description="Fetch publications for an ambiguous author name from OpenAlex")
-    parser.add_argument("author_name", help="Author name to fetch data for (e.g., 'David Nathan')")
-    args = parser.parse_args()
-    author_name = args.author_name
-
-    print(f"Retrieving publication data from {author_name}\n")
-
+def fetch_data(name):
     #1. Fetch author data from OpenAlex
-    author_data = oth.fetch_author_data(author_name)
+    author_data = oth.fetch_author_data(name)
 
     #2. Mapping author ID to lable (0,1,2,...)
     author_id_to_label = {}
@@ -55,7 +47,18 @@ def main():
             works_data[work["id"]] = work
 
     #4. Save to JSON (consumed later by neo4j_import.py)
-    oth.save_data_to_json(author_name, author_data, works_data, author_id_to_label)
+    oth.save_data_to_json(name, author_data, works_data, author_id_to_label)
+
+
+def main():
+    parser = argparse.ArgumentParser(description="Fetch publications for an ambiguous author name from OpenAlex")
+    parser.add_argument("author_name", help="Author name to fetch data for (e.g., 'David Nathan')")
+    args = parser.parse_args()
+    author_name = args.author_name
+
+    print(f"Retrieving publication data from {author_name}\n")
+
+    fetch_data(author_name)
 
     print(f"\nData is imported to cache/{author_name}_data.json")
 
