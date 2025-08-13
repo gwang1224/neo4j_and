@@ -37,8 +37,8 @@
         "W984807221",
         "W2564833184",
         "W4296702771",
-        "W4281298651",
         "W4225089176",
+        "W4281298651",
         "W4296702407",
         "W2090609048",
         "W2042981781",
@@ -51,9 +51,9 @@
         "W2039234719",
         "W2015695238",
         "W2169376575",
-        "W2010297819",
         "W2005038357",
         "W2004793507",
+        "W2010297819",
         "W2169526482",
         "W4321508365",
         "W1511319154",
@@ -80,8 +80,8 @@
         "W4212879092",
         "W2053160288",
         "W2084308090",
-        "W2008001887",
         "W2101515997",
+        "W2008001887",
         "W1999204980",
         "W1988223280",
         "W2167202831",
@@ -94,9 +94,9 @@
         "W2035513334",
         "W1970952605",
         "W2956084250",
-        "W2963115582",
-        "W2727111851",
         "W1506839237",
+        "W2727111851",
+        "W2963115582",
         "W2607923141",
         "W3080103554",
         "W3121404931",
@@ -290,9 +290,9 @@
         "W2768939817",
         "W2734911247",
         "W3127523362",
-        "W4392136372",
         "W1997048409",
         "W3187495758",
+        "W4392136372",
         "W4409875193",
         "W2020745886",
         "W2093217653",
@@ -302,17 +302,17 @@
         "W2146875600",
         "W2015904026",
         "W2106592062",
-        "W1927099364",
         "W2113039873",
         "W2068346004",
         "W2900979192",
         "W4372279248",
+        "W4384925151",
         "W1966979597",
         "W1978203095",
         "W1983086896",
         "W1982601717",
+        "W1927099364",
         "W2071722350",
-        "W4384925151",
         "W2085558427",
         "W2039221111",
         "W1986021351",
@@ -324,11 +324,11 @@
         "W2064367453",
         "W2116881931",
         "W2789751811",
-        "W2934681203",
         "W2123481166",
-        "W4411291373",
-        "W4411292887",
-        "W4411293738"
+        "W2934681203",
+        "W3211708690",
+        "W4291972739",
+        "W4411291373"
       ]
     },
     "A5110043459": {
@@ -368,8 +368,8 @@
         "W4402746327",
         "W4407787050",
         "W2097704905",
-        "W4401167426",
         "W3109044540",
+        "W4401167426",
         "W2626156398",
         "W1979574401",
         "W4385246035",
@@ -485,10 +485,7 @@
       "works_count": 9,
       "works": [
         "W2124777676",
-        "W405447708",
-        "W2503269911",
-        "W2992575897",
-        "W2620987551"
+        "W405447708"
       ]
     },
     "A5002200038": {
@@ -2733,62 +2730,6 @@
       ],
       "venue": "New England Journal of Medicine"
     },
-    "W4281298651": {
-      "id": "W4281298651",
-      "title": "Effects of Long-term Metformin and Lifestyle Interventions on Cardiovascular Events in the Diabetes Prevention Program and Its Outcome Study",
-      "year": 2022,
-      "authors": [
-        {
-          "name": "Ronald Goldberg",
-          "id": "A5011389314"
-        },
-        {
-          "name": "Trevor J. Orchard",
-          "id": "A5005102981"
-        },
-        {
-          "name": "Jill P. Crandall",
-          "id": "A5013897262"
-        },
-        {
-          "name": "Edward J. Boyko",
-          "id": "A5063180545"
-        },
-        {
-          "name": "Matthew J. Budoff",
-          "id": "A5079665496"
-        },
-        {
-          "name": "Dana Dabelea",
-          "id": "A5086940958"
-        },
-        {
-          "name": "Kishore M. Gadde",
-          "id": "A5034748550"
-        },
-        {
-          "name": "William C. Knowler",
-          "id": "A5050165878"
-        },
-        {
-          "name": "Christine G. Lee",
-          "id": "A5019504626"
-        },
-        {
-          "name": "David M. Nathan",
-          "id": "A5113797452"
-        },
-        {
-          "name": "Karol E. Watson",
-          "id": "A5057163860"
-        },
-        {
-          "name": "Marinella Temprosa",
-          "id": "A5018513210"
-        }
-      ],
-      "venue": "Circulation"
-    },
     "W4225089176": {
       "id": "W4225089176",
       "title": "Association of Traumatic Brain Injury With the Risk of Developing Chronic Cardiovascular, Endocrine, Neurological, and Psychiatric Disorders",
@@ -2876,6 +2817,62 @@
         }
       ],
       "venue": "JAMA Network Open"
+    },
+    "W4281298651": {
+      "id": "W4281298651",
+      "title": "Effects of Long-term Metformin and Lifestyle Interventions on Cardiovascular Events in the Diabetes Prevention Program and Its Outcome Study",
+      "year": 2022,
+      "authors": [
+        {
+          "name": "Ronald Goldberg",
+          "id": "A5011389314"
+        },
+        {
+          "name": "Trevor J. Orchard",
+          "id": "A5005102981"
+        },
+        {
+          "name": "Jill P. Crandall",
+          "id": "A5013897262"
+        },
+        {
+          "name": "Edward J. Boyko",
+          "id": "A5063180545"
+        },
+        {
+          "name": "Matthew J. Budoff",
+          "id": "A5079665496"
+        },
+        {
+          "name": "Dana Dabelea",
+          "id": "A5086940958"
+        },
+        {
+          "name": "Kishore M. Gadde",
+          "id": "A5034748550"
+        },
+        {
+          "name": "William C. Knowler",
+          "id": "A5050165878"
+        },
+        {
+          "name": "Christine G. Lee",
+          "id": "A5019504626"
+        },
+        {
+          "name": "David M. Nathan",
+          "id": "A5113797452"
+        },
+        {
+          "name": "Karol E. Watson",
+          "id": "A5057163860"
+        },
+        {
+          "name": "Marinella Temprosa",
+          "id": "A5018513210"
+        }
+      ],
+      "venue": "Circulation"
     },
     "W4296702407": {
       "id": "W4296702407",
@@ -3285,18 +3282,6 @@
       ],
       "venue": "Diabetes Care"
     },
-    "W2010297819": {
-      "id": "W2010297819",
-      "title": "International Expert Committee Report on the Role of the A1C Assay in the Diagnosis of Diabetes",
-      "year": 2009,
-      "authors": [
-        {
-          "name": "David M. Nathan",
-          "id": "A5113797452"
-        }
-      ],
-      "venue": "Diabetes Care"
-    },
     "W2005038357": {
       "id": "W2005038357",
       "title": "Finding New Treatments for Diabetes \u2014 How Many, How Fast . . . How Good?",
@@ -3336,6 +3321,18 @@
         }
       ],
       "venue": "Diabetes"
+    },
+    "W2010297819": {
+      "id": "W2010297819",
+      "title": "International Expert Committee Report on the Role of the A1C Assay in the Diagnosis of Diabetes",
+      "year": 2009,
+      "authors": [
+        {
+          "name": "David M. Nathan",
+          "id": "A5113797452"
+        }
+      ],
+      "venue": "Diabetes Care"
     },
     "W2169526482": {
       "id": "W2169526482",
@@ -4921,18 +4918,6 @@
       ],
       "venue": "Diabetes"
     },
-    "W2008001887": {
-      "id": "W2008001887",
-      "title": "Rosiglitazone and Cardiotoxicity \u2014 Weighing the Evidence",
-      "year": 2007,
-      "authors": [
-        {
-          "name": "David M. Nathan",
-          "id": "A5113797452"
-        }
-      ],
-      "venue": "New England Journal of Medicine"
-    },
     "W2101515997": {
       "id": "W2101515997",
       "title": "Effects of the Type 2 Diabetes-Associated<i>PPARG</i>P12A Polymorphism on Progression to Diabetes and Response to Troglitazone",
@@ -4980,6 +4965,18 @@
         }
       ],
       "venue": "The Journal of Clinical Endocrinology & Metabolism"
+    },
+    "W2008001887": {
+      "id": "W2008001887",
+      "title": "Rosiglitazone and Cardiotoxicity \u2014 Weighing the Evidence",
+      "year": 2007,
+      "authors": [
+        {
+          "name": "David M. Nathan",
+          "id": "A5113797452"
+        }
+      ],
+      "venue": "New England Journal of Medicine"
     },
     "W1999204980": {
       "id": "W1999204980",
@@ -5785,6 +5782,210 @@
       ],
       "venue": "Diabetologia"
     },
+    "W1506839237": {
+      "id": "W1506839237",
+      "title": "Changes in body composition over 8 years in a randomized trial of a lifestyle intervention: The look AHEAD study",
+      "year": 2015,
+      "authors": [
+        {
+          "name": "Henry J. Pownall",
+          "id": "A5089801293"
+        },
+        {
+          "name": "George A. Bray",
+          "id": "A5047527237"
+        },
+        {
+          "name": "Lynne E. Wagenknecht",
+          "id": "A5089623919"
+        },
+        {
+          "name": "Michael P. Walkup",
+          "id": "A5061384957"
+        },
+        {
+          "name": "Stanley Heshka",
+          "id": "A5068026725"
+        },
+        {
+          "name": "Van S. Hubbard",
+          "id": "A5108510420"
+        },
+        {
+          "name": "James O. Hill",
+          "id": "A5031318756"
+        },
+        {
+          "name": "Steven E. Kahn",
+          "id": "A5066700951"
+        },
+        {
+          "name": "David M. Nathan",
+          "id": "A5113797452"
+        },
+        {
+          "name": "Anne V. Schwartz",
+          "id": "A5087362130"
+        },
+        {
+          "name": "Karen Johnson",
+          "id": "A5109252649"
+        }
+      ],
+      "venue": "Obesity"
+    },
+    "W2727111851": {
+      "id": "W2727111851",
+      "title": "The Effect of Intentional Weight Loss on Fracture Risk in Persons With Diabetes: Results From the Look AHEAD Randomized Clinical Trial",
+      "year": 2017,
+      "authors": [
+        {
+          "name": "Karen Johnson",
+          "id": "A5007972753"
+        },
+        {
+          "name": "George A. Bray",
+          "id": "A5047527237"
+        },
+        {
+          "name": "Lawrence J. Cheskin",
+          "id": "A5070743956"
+        },
+        {
+          "name": "Jeanne M. Clark",
+          "id": "A5069777392"
+        },
+        {
+          "name": "Caitlin Egan",
+          "id": "A5007242488"
+        },
+        {
+          "name": "John P. Foreyt",
+          "id": "A5109189597"
+        },
+        {
+          "name": "Katelyn R Garcia",
+          "id": "A5110354345"
+        },
+        {
+          "name": "Stephen P. Glasser",
+          "id": "A5012896101"
+        },
+        {
+          "name": "Frank L. Greenway",
+          "id": "A5080400693"
+        },
+        {
+          "name": "Edward W. Gregg",
+          "id": "A5081201455"
+        },
+        {
+          "name": "Helen P. Hazuda",
+          "id": "A5006356455"
+        },
+        {
+          "name": "Andrea L. Hergenroeder",
+          "id": "A5033539141"
+        },
+        {
+          "name": "James O. Hill",
+          "id": "A5031318756"
+        },
+        {
+          "name": "Edward S. Horton",
+          "id": "A5069336249"
+        },
+        {
+          "name": "John M. Jakicic",
+          "id": "A5045643047"
+        },
+        {
+          "name": "Robert W. Jeffery",
+          "id": "A5108273842"
+        },
+        {
+          "name": "Steven E. Kahn",
+          "id": "A5066700951"
+        },
+        {
+          "name": "William C. Knowler",
+          "id": "A5050165878"
+        },
+        {
+          "name": "Cora E. Lewis",
+          "id": "A5069988352"
+        },
+        {
+          "name": "Marsha Miller",
+          "id": "A5109069620"
+        },
+        {
+          "name": "Maria G. Montez",
+          "id": "A5090320967"
+        },
+        {
+          "name": "David M. Nathan",
+          "id": "A5113797452"
+        },
+        {
+          "name": "Jennifer Patricio",
+          "id": "A5112293511"
+        },
+        {
+          "name": "Anne L. Peters",
+          "id": "A5001347850"
+        },
+        {
+          "name": "Xavier Pi\u2010Sunyer",
+          "id": "A5108098922"
+        },
+        {
+          "name": "Henry J. Pownall",
+          "id": "A5089801293"
+        },
+        {
+          "name": "David M. Reboussin",
+          "id": "A5109052253"
+        },
+        {
+          "name": "J. Bruce Redmon",
+          "id": "A5068558719"
+        },
+        {
+          "name": "Helmut O. Steinberg",
+          "id": "A5105530141"
+        },
+        {
+          "name": "Thomas A. Wadden",
+          "id": "A5026596594"
+        },
+        {
+          "name": "Lynne E. Wagenknecht",
+          "id": "A5089623919"
+        },
+        {
+          "name": "Rena R. Wing",
+          "id": "A5079705977"
+        },
+        {
+          "name": "Catherine Womack",
+          "id": "A5066096834"
+        },
+        {
+          "name": "Jack A. Yanovski",
+          "id": "A5068075323"
+        },
+        {
+          "name": "Zhang Ping",
+          "id": "A5100691469"
+        },
+        {
+          "name": "Ann V. Schwartz",
+          "id": "A5011607120"
+        }
+      ],
+      "venue": "Journal of Bone and Mineral Research"
+    },
     "W2963115582": {
       "id": "W2963115582",
       "title": "Regression From Prediabetes to Normal Glucose Regulation and Prevalence of Microvascular Disease in the Diabetes Prevention Program Outcomes Study (DPPOS)",
@@ -6192,210 +6393,6 @@
         }
       ],
       "venue": "Diabetes Care"
-    },
-    "W2727111851": {
-      "id": "W2727111851",
-      "title": "The Effect of Intentional Weight Loss on Fracture Risk in Persons With Diabetes: Results From the Look AHEAD Randomized Clinical Trial",
-      "year": 2017,
-      "authors": [
-        {
-          "name": "Karen Johnson",
-          "id": "A5007972753"
-        },
-        {
-          "name": "George A. Bray",
-          "id": "A5047527237"
-        },
-        {
-          "name": "Lawrence J. Cheskin",
-          "id": "A5070743956"
-        },
-        {
-          "name": "Jeanne M. Clark",
-          "id": "A5069777392"
-        },
-        {
-          "name": "Caitlin Egan",
-          "id": "A5007242488"
-        },
-        {
-          "name": "John P. Foreyt",
-          "id": "A5109189597"
-        },
-        {
-          "name": "Katelyn R Garcia",
-          "id": "A5110354345"
-        },
-        {
-          "name": "Stephen P. Glasser",
-          "id": "A5012896101"
-        },
-        {
-          "name": "Frank L. Greenway",
-          "id": "A5080400693"
-        },
-        {
-          "name": "Edward W. Gregg",
-          "id": "A5081201455"
-        },
-        {
-          "name": "Helen P. Hazuda",
-          "id": "A5006356455"
-        },
-        {
-          "name": "Andrea L. Hergenroeder",
-          "id": "A5033539141"
-        },
-        {
-          "name": "James O. Hill",
-          "id": "A5031318756"
-        },
-        {
-          "name": "Edward S. Horton",
-          "id": "A5069336249"
-        },
-        {
-          "name": "John M. Jakicic",
-          "id": "A5045643047"
-        },
-        {
-          "name": "Robert W. Jeffery",
-          "id": "A5108273842"
-        },
-        {
-          "name": "Steven E. Kahn",
-          "id": "A5066700951"
-        },
-        {
-          "name": "William C. Knowler",
-          "id": "A5050165878"
-        },
-        {
-          "name": "Cora E. Lewis",
-          "id": "A5069988352"
-        },
-        {
-          "name": "Marsha Miller",
-          "id": "A5109069620"
-        },
-        {
-          "name": "Maria G. Montez",
-          "id": "A5090320967"
-        },
-        {
-          "name": "David M. Nathan",
-          "id": "A5113797452"
-        },
-        {
-          "name": "Jennifer Patricio",
-          "id": "A5112293511"
-        },
-        {
-          "name": "Anne L. Peters",
-          "id": "A5001347850"
-        },
-        {
-          "name": "Xavier Pi\u2010Sunyer",
-          "id": "A5108098922"
-        },
-        {
-          "name": "Henry J. Pownall",
-          "id": "A5089801293"
-        },
-        {
-          "name": "David M. Reboussin",
-          "id": "A5109052253"
-        },
-        {
-          "name": "J. Bruce Redmon",
-          "id": "A5068558719"
-        },
-        {
-          "name": "Helmut O. Steinberg",
-          "id": "A5105530141"
-        },
-        {
-          "name": "Thomas A. Wadden",
-          "id": "A5026596594"
-        },
-        {
-          "name": "Lynne E. Wagenknecht",
-          "id": "A5089623919"
-        },
-        {
-          "name": "Rena R. Wing",
-          "id": "A5079705977"
-        },
-        {
-          "name": "Catherine Womack",
-          "id": "A5066096834"
-        },
-        {
-          "name": "Jack A. Yanovski",
-          "id": "A5068075323"
-        },
-        {
-          "name": "Zhang Ping",
-          "id": "A5100691469"
-        },
-        {
-          "name": "Ann V. Schwartz",
-          "id": "A5011607120"
-        }
-      ],
-      "venue": "Journal of Bone and Mineral Research"
-    },
-    "W1506839237": {
-      "id": "W1506839237",
-      "title": "Changes in body composition over 8 years in a randomized trial of a lifestyle intervention: The look AHEAD study",
-      "year": 2015,
-      "authors": [
-        {
-          "name": "Henry J. Pownall",
-          "id": "A5089801293"
-        },
-        {
-          "name": "George A. Bray",
-          "id": "A5047527237"
-        },
-        {
-          "name": "Lynne E. Wagenknecht",
-          "id": "A5089623919"
-        },
-        {
-          "name": "Michael P. Walkup",
-          "id": "A5061384957"
-        },
-        {
-          "name": "Stanley Heshka",
-          "id": "A5068026725"
-        },
-        {
-          "name": "Van S. Hubbard",
-          "id": "A5108510420"
-        },
-        {
-          "name": "James O. Hill",
-          "id": "A5031318756"
-        },
-        {
-          "name": "Steven E. Kahn",
-          "id": "A5066700951"
-        },
-        {
-          "name": "David M. Nathan",
-          "id": "A5113797452"
-        },
-        {
-          "name": "Anne V. Schwartz",
-          "id": "A5087362130"
-        },
-        {
-          "name": "Karen Johnson",
-          "id": "A5109252649"
-        }
-      ],
-      "venue": "Obesity"
     },
     "W2607923141": {
       "id": "W2607923141",
@@ -14089,6 +14086,66 @@
       ],
       "venue": "Diabetologia"
     },
+    "W1997048409": {
+      "id": "W1997048409",
+      "title": "Effect of Intensive Glycemic Control on Levels of Markers of Inflammation in Type 1 Diabetes Mellitus in the Diabetes Control and Complications Trial",
+      "year": 2005,
+      "authors": [
+        {
+          "name": "Debra A. Schaumberg",
+          "id": "A5054111608"
+        },
+        {
+          "name": "Robert J. Glynn",
+          "id": "A5037322697"
+        },
+        {
+          "name": "Alicia J. Jenkins",
+          "id": "A5073990841"
+        },
+        {
+          "name": "Timothy J. Lyons",
+          "id": "A5012226876"
+        },
+        {
+          "name": "Nader Rifai",
+          "id": "A5024218470"
+        },
+        {
+          "name": "JoAnn E. Manson",
+          "id": "A5049411008"
+        },
+        {
+          "name": "Paul M. Ridker",
+          "id": "A5091595592"
+        },
+        {
+          "name": "David M. Nathan",
+          "id": "A5103715347"
+        }
+      ],
+      "venue": "Circulation"
+    },
+    "W3187495758": {
+      "id": "W3187495758",
+      "title": "The Beneficial Effects of Earlier Versus Later Implementation of Intensive Therapy in Type 1 Diabetes",
+      "year": 2021,
+      "authors": [
+        {
+          "name": "John M. Lachin",
+          "id": "A5035897807"
+        },
+        {
+          "name": "Ionut Bebu",
+          "id": "A5021311260"
+        },
+        {
+          "name": "David M. Nathan",
+          "id": "A5103715347"
+        }
+      ],
+      "venue": "Diabetes Care"
+    },
     "W4392136372": {
       "id": "W4392136372",
       "title": "Estimating Glycemia From HbA1c and CGM: Analysis of Accuracy and Sources of Discrepancy",
@@ -14153,66 +14210,6 @@
         {
           "name": "John M. Higgins",
           "id": "A5088066134"
-        }
-      ],
-      "venue": "Diabetes Care"
-    },
-    "W1997048409": {
-      "id": "W1997048409",
-      "title": "Effect of Intensive Glycemic Control on Levels of Markers of Inflammation in Type 1 Diabetes Mellitus in the Diabetes Control and Complications Trial",
-      "year": 2005,
-      "authors": [
-        {
-          "name": "Debra A. Schaumberg",
-          "id": "A5054111608"
-        },
-        {
-          "name": "Robert J. Glynn",
-          "id": "A5037322697"
-        },
-        {
-          "name": "Alicia J. Jenkins",
-          "id": "A5073990841"
-        },
-        {
-          "name": "Timothy J. Lyons",
-          "id": "A5012226876"
-        },
-        {
-          "name": "Nader Rifai",
-          "id": "A5024218470"
-        },
-        {
-          "name": "JoAnn E. Manson",
-          "id": "A5049411008"
-        },
-        {
-          "name": "Paul M. Ridker",
-          "id": "A5091595592"
-        },
-        {
-          "name": "David M. Nathan",
-          "id": "A5103715347"
-        }
-      ],
-      "venue": "Circulation"
-    },
-    "W3187495758": {
-      "id": "W3187495758",
-      "title": "The Beneficial Effects of Earlier Versus Later Implementation of Intensive Therapy in Type 1 Diabetes",
-      "year": 2021,
-      "authors": [
-        {
-          "name": "John M. Lachin",
-          "id": "A5035897807"
-        },
-        {
-          "name": "Ionut Bebu",
-          "id": "A5021311260"
-        },
-        {
-          "name": "David M. Nathan",
-          "id": "A5103715347"
         }
       ],
       "venue": "Diabetes Care"
@@ -14524,18 +14521,6 @@
         }
       ],
       "venue": "Diabetologia"
-    },
-    "W1927099364": {
-      "id": "W1927099364",
-      "title": "Labile glycosylated hemoglobin contributes to hemoglobin A1 as measured by liquid chromatography or electrophoresis.",
-      "year": 1981,
-      "authors": [
-        {
-          "name": "David M. Nathan",
-          "id": "A5103715347"
-        }
-      ],
-      "venue": "Clinical Chemistry"
     },
     "W2113039873": {
       "id": "W2113039873",
@@ -15093,6 +15078,50 @@
       ],
       "venue": "JAMA Network Open"
     },
+    "W4384925151": {
+      "id": "W4384925151",
+      "title": "Executive Summary: Guidelines and Recommendations for Laboratory Analysis in the Diagnosis and Management of Diabetes Mellitus",
+      "year": 2023,
+      "authors": [
+        {
+          "name": "David B. Sacks",
+          "id": "A5015223159"
+        },
+        {
+          "name": "Mark A. Arnold",
+          "id": "A5085986987"
+        },
+        {
+          "name": "George L. Bakris",
+          "id": "A5012514694"
+        },
+        {
+          "name": "David E. Bruns",
+          "id": "A5111748862"
+        },
+        {
+          "name": "Andrea R. Horvath",
+          "id": "A5030171732"
+        },
+        {
+          "name": "\u00c5ke Lernmark",
+          "id": "A5008841181"
+        },
+        {
+          "name": "Boyd E. Metzger",
+          "id": "A5087590627"
+        },
+        {
+          "name": "David M. Nathan",
+          "id": "A5103715347"
+        },
+        {
+          "name": "M. Sue Kirkman",
+          "id": "A5053998736"
+        }
+      ],
+      "venue": "Diabetes Care"
+    },
     "W1966979597": {
       "id": "W1966979597",
       "title": "Baseline analysis of renal function in the Diabetes Control and Complications Trial",
@@ -15225,6 +15254,18 @@
       ],
       "venue": "New England Journal of Medicine"
     },
+    "W1927099364": {
+      "id": "W1927099364",
+      "title": "Labile glycosylated hemoglobin contributes to hemoglobin A1 as measured by liquid chromatography or electrophoresis.",
+      "year": 1981,
+      "authors": [
+        {
+          "name": "David M. Nathan",
+          "id": "A5103715347"
+        }
+      ],
+      "venue": "Clinical Chemistry"
+    },
     "W2071722350": {
       "id": "W2071722350",
       "title": "Acute Methemoglobinemia and Hemolytic Anemia With Phenazopyridine",
@@ -15236,50 +15277,6 @@
         }
       ],
       "venue": "Archives of Internal Medicine"
-    },
-    "W4384925151": {
-      "id": "W4384925151",
-      "title": "Executive Summary: Guidelines and Recommendations for Laboratory Analysis in the Diagnosis and Management of Diabetes Mellitus",
-      "year": 2023,
-      "authors": [
-        {
-          "name": "David B. Sacks",
-          "id": "A5015223159"
-        },
-        {
-          "name": "Mark A. Arnold",
-          "id": "A5085986987"
-        },
-        {
-          "name": "George L. Bakris",
-          "id": "A5012514694"
-        },
-        {
-          "name": "David E. Bruns",
-          "id": "A5111748862"
-        },
-        {
-          "name": "Andrea R. Horvath",
-          "id": "A5030171732"
-        },
-        {
-          "name": "\u00c5ke Lernmark",
-          "id": "A5008841181"
-        },
-        {
-          "name": "Boyd E. Metzger",
-          "id": "A5087590627"
-        },
-        {
-          "name": "David M. Nathan",
-          "id": "A5103715347"
-        },
-        {
-          "name": "M. Sue Kirkman",
-          "id": "A5053998736"
-        }
-      ],
-      "venue": "Diabetes Care"
     },
     "W2085558427": {
       "id": "W2085558427",
@@ -15949,6 +15946,26 @@
       ],
       "venue": "The Journal of Pediatrics"
     },
+    "W2123481166": {
+      "id": "W2123481166",
+      "title": "The Diabetes Control and Complications Trial/Epidemiology of Diabetes Interventions and Complications Study: 30th Anniversary Presentations",
+      "year": 2013,
+      "authors": [
+        {
+          "name": "Bernard Zinman",
+          "id": "A5090437675"
+        },
+        {
+          "name": "Saul Genuth",
+          "id": "A5071915821"
+        },
+        {
+          "name": "David M. Nathan",
+          "id": "A5103715347"
+        }
+      ],
+      "venue": "Diabetes Care"
+    },
     "W2934681203": {
       "id": "W2934681203",
       "title": "Accuracy of a Point-of-Care Hemoglobin A1c Assay",
@@ -15981,22 +15998,86 @@
       ],
       "venue": "Journal of Diabetes Science and Technology"
     },
-    "W2123481166": {
-      "id": "W2123481166",
-      "title": "The Diabetes Control and Complications Trial/Epidemiology of Diabetes Interventions and Complications Study: 30th Anniversary Presentations",
-      "year": 2013,
+    "W3211708690": {
+      "id": "W3211708690",
+      "title": "Comparison of central laboratory HbA1c measurements obtained from a capillary collection versus a standard venous whole blood collection in the GRADE and EDIC studies",
+      "year": 2021,
       "authors": [
         {
-          "name": "Bernard Zinman",
-          "id": "A5090437675"
+          "name": "David M. Nathan",
+          "id": "A5103715347"
         },
         {
-          "name": "Saul Genuth",
-          "id": "A5071915821"
+          "name": "Heidi Krause\u2010Steinrauf",
+          "id": "A5065529783"
+        },
+        {
+          "name": "Barbara H. Braffett",
+          "id": "A5023573112"
+        },
+        {
+          "name": "Valerie Arends",
+          "id": "A5004347939"
+        },
+        {
+          "name": "Naji Younes",
+          "id": "A5009634993"
+        },
+        {
+          "name": "Paula McGee",
+          "id": "A5110215491"
+        },
+        {
+          "name": "Claire Lund",
+          "id": "A5070427747"
+        },
+        {
+          "name": "Mary L. Johnson",
+          "id": "A5108102445"
+        },
+        {
+          "name": "Gayle M. Lorenzi",
+          "id": "A5031283133"
+        },
+        {
+          "name": "Xiaoyu Gao",
+          "id": "A5037219182"
+        },
+        {
+          "name": "Michael W. Steffes",
+          "id": "A5103242653"
+        },
+        {
+          "name": "John M. Lachin",
+          "id": "A5035897807"
+        }
+      ],
+      "venue": "PLoS ONE"
+    },
+    "W4291972739": {
+      "id": "W4291972739",
+      "title": "Association of Estimated Time-in-Range Capillary Glucose Levels Versus HbA1c With Progression of Microvascular Complications in the Diabetes Control and Complications Trial",
+      "year": 2022,
+      "authors": [
+        {
+          "name": "John M. Lachin",
+          "id": "A5035897807"
+        },
+        {
+          "name": "Ionut Bebu",
+          "id": "A5021311260"
+        },
+        {
+          "name": "Xiaoyu Gao",
+          "id": "A5037219182"
         },
         {
           "name": "David M. Nathan",
           "id": "A5103715347"
+        },
+        {
+          "name": "Bernard Zinman",
+          "id": "A5090437675"
         }
       ],
       "venue": "Diabetes Care"
@@ -16049,110 +16130,6 @@
         {
           "name": "Rose Gubitosi\u2010Klug",
           "id": "A5019684802"
-        }
-      ],
-      "venue": "Diabetes"
-    },
-    "W4411292887": {
-      "id": "W4411292887",
-      "title": "2093-LB: Obstructive Sleep Apnea in Adults with Type 1 Diabetes",
-      "year": 2025,
-      "authors": [
-        {
-          "name": "Catherine L. Martin",
-          "id": "A5110371189"
-        },
-        {
-          "name": "Matthew J. Bott",
-          "id": "A5033896136"
-        },
-        {
-          "name": "Victoria R. Trapani",
-          "id": "A5075535937"
-        },
-        {
-          "name": "Ionut Bebu",
-          "id": "A5021311260"
-        },
-        {
-          "name": "Barbara H. Braffett",
-          "id": "A5023573112"
-        },
-        {
-          "name": "Gayle M. Lorenzi",
-          "id": "A5031283133"
-        },
-        {
-          "name": "David M. Nathan",
-          "id": "A5103715347"
-        },
-        {
-          "name": "Harsha Karanchi",
-          "id": "A5035878529"
-        },
-        {
-          "name": "Rose Gubitosi\u2010Klug",
-          "id": "A5019684802"
-        }
-      ],
-      "venue": "Diabetes"
-    },
-    "W4411293738": {
-      "id": "W4411293738",
-      "title": "413-P: MASLD in Adults with Type 1 Diabetes Mellitus\u2014Association with Hyperglycemia",
-      "year": 2025,
-      "authors": [
-        {
-          "name": "KENNETH CUSI",
-          "id": "A5064761604"
-        },
-        {
-          "name": "Victoria R. Trapani",
-          "id": "A5075535937"
-        },
-        {
-          "name": "Harsha Karanchi",
-          "id": "A5035878529"
-        },
-        {
-          "name": "Barbara H. Braffett",
-          "id": "A5023573112"
-        },
-        {
-          "name": "Ionut Bebu",
-          "id": "A5021311260"
-        },
-        {
-          "name": "Rose Gubitosi\u2010Klug",
-          "id": "A5019684802"
-        },
-        {
-          "name": "Matthew J. Bott",
-          "id": "A5033896136"
-        },
-        {
-          "name": "Gayle M. Lorenzi",
-          "id": "A5031283133"
-        },
-        {
-          "name": "Valerie Arends",
-          "id": "A5004347939"
-        },
-        {
-          "name": "C. Lovell",
-          "id": "A5061004515"
-        },
-        {
-          "name": "David M. Nathan",
-          "id": "A5103715347"
-        },
-        {
-          "name": "Antonio S\u00e1nchez",
-          "id": "A5100629012"
-        },
-        {
-          "name": "William I. Sivitz",
-          "id": "A5032808557"
         }
       ],
       "venue": "Diabetes"
@@ -17361,22 +17338,6 @@
       ],
       "venue": "Diabetes Care"
     },
-    "W4401167426": {
-      "id": "W4401167426",
-      "title": "History of the Diabetes Control and Complications Trial and Its Follow-up Epidemiology of Diabetes Interventions and Complications Study: Studies That Changed the Treatment of Type 1 Diabetes",
-      "year": 2024,
-      "authors": [
-        {
-          "name": "David M. Nathan",
-          "id": "A5010876778"
-        },
-        {
-          "name": "John M. Lachin",
-          "id": "A5035897807"
-        }
-      ],
-      "venue": "Diabetes Care"
-    },
     "W3109044540": {
       "id": "W3109044540",
       "title": "The A1c-derived Average Glucose (ADAG) Study Group: Translating the A1C assay into estimated average glucose values (Diabetes Care (2008) 31(1473-1478))",
@@ -17405,6 +17366,22 @@
         {
           "name": "Robert J. Heine",
           "id": "A5113467761"
+        }
+      ],
+      "venue": "Diabetes Care"
+    },
+    "W4401167426": {
+      "id": "W4401167426",
+      "title": "History of the Diabetes Control and Complications Trial and Its Follow-up Epidemiology of Diabetes Interventions and Complications Study: Studies That Changed the Treatment of Type 1 Diabetes",
+      "year": 2024,
+      "authors": [
+        {
+          "name": "David M. Nathan",
+          "id": "A5010876778"
+        },
+        {
+          "name": "John M. Lachin",
+          "id": "A5035897807"
         }
       ],
       "venue": "Diabetes Care"
@@ -18347,7 +18324,7 @@
           "id": "A5063705635"
         },
         {
-          "name": "Emilio Poggio",
+          "name": "E. Poggio",
           "id": "A5107467130"
         },
         {
@@ -19067,7 +19044,7 @@
           "id": "A5049234672"
         },
         {
-          "name": "M. Spreafico",
+          "name": "Marta Spreafico",
           "id": "A5015120310"
         },
         {
@@ -19219,7 +19196,7 @@
           "id": "A5103449307"
         },
         {
-          "name": "H\u00e1kon H\u00e1konarson",
+          "name": "H\u00e5kon H\u00e5konarson",
           "id": "A5088244425"
         },
         {
@@ -19752,94 +19729,6 @@
         }
       ],
       "venue": "PLoS ONE"
-    },
-    "W2503269911": {
-      "id": "W2503269911",
-      "title": "Development of a Kinect Software Tool to Classify Movements during Active Video Gaming",
-      "year": 2016,
-      "authors": [
-        {
-          "name": "Michael Rosenberg",
-          "id": "A5068440613"
-        },
-        {
-          "name": "Ashleigh Thornton",
-          "id": "A5009134691"
-        },
-        {
-          "name": "Brendan Lay",
-          "id": "A5036554420"
-        },
-        {
-          "name": "Brodie Ward",
-          "id": "A5024979096"
-        },
-        {
-          "name": "David Nathan",
-          "id": "A5090655660"
-        },
-        {
-          "name": "Daniel V. Hunt",
-          "id": "A5050128763"
-        },
-        {
-          "name": "Rebecca Braham",
-          "id": "A5035584757"
-        }
-      ],
-      "venue": "PLoS ONE"
-    },
-    "W2992575897": {
-      "id": "W2992575897",
-      "title": "Imaging sedimentary basins from high-resolution aeromagnetics and texture analysis",
-      "year": 2019,
-      "authors": [
-        {
-          "name": "David Nathan",
-          "id": "A5090655660"
-        },
-        {
-          "name": "Alan Aitken",
-          "id": "A5089143910"
-        },
-        {
-          "name": "Eun\u2010Jung Holden",
-          "id": "A5060545335"
-        },
-        {
-          "name": "Jason Wong",
-          "id": "A5110652994"
-        }
-      ],
-      "venue": "Computers & Geosciences"
-    },
-    "W2620987551": {
-      "id": "W2620987551",
-      "title": "Learning characteristic natural gamma shale marker signatures in iron ore deposits",
-      "year": 2017,
-      "authors": [
-        {
-          "name": "David Nathan",
-          "id": "A5090655660"
-        },
-        {
-          "name": "Paul Duuring",
-          "id": "A5014250958"
-        },
-        {
-          "name": "Eun\u2010Jung Holden",
-          "id": "A5060545335"
-        },
-        {
-          "name": "Daniel Wedge",
-          "id": "A5072024891"
-        },
-        {
-          "name": "Tom Horrocks",
-          "id": "A5029787769"
-        }
-      ],
-      "venue": "Computers & Geosciences"
     },
     "W2171847292": {
       "id": "W2171847292",
