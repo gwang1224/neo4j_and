@@ -17,10 +17,15 @@ Usage
 3) Run from repo root, e.g. `PYTHONPATH=. python neo4j_import.py`
 
 Outputs (example counts from "David Nathan")
-- 413 nodes
-- 22,953 relationships total
-- 5,113 COVENUE relationships
-- 17,840 COAUTHOR relationships
+    Connection to Neo4j database successful!
+    All nodes were successfully deleted.
+    Number of nodes: 0
+    All nodes were successfully added.
+    Created 5122 CoVenue relationships
+    Created 17853 CoAuthor relationships
+    Created 85 cotitle relationships (cosine ≥ 0.6)
+    Number of nodes: 428
+    Total relationships: 23060
 
 Notes
 - Relationships are currently modeled as directional in code, but clustering can treat the graph as undirected
@@ -32,16 +37,11 @@ from neo4j.exceptions import ServiceUnavailable, Neo4jError
 import json
 from typing import List, Dict, Tuple
 
-# For CoTitle similarity
-try:
-    from sklearn.feature_extraction.text import TfidfVectorizer
-    from sklearn.metrics.pairwise import cosine_similarity
-except ImportError as _e:  # pragma: no cover - optional at import time
-    TfidfVectorizer = None
-    cosine_similarity = None
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
+
 
 class Neo4jImportData:
-
     def __init__(self, uri, user, password, db, data_path):
         """
         Initialize a Neo4j driver and load the cached data
@@ -169,7 +169,7 @@ class Neo4jImportData:
                     )
                     created_edges += 1
         
-        print(f" Created {created_edges} CoVenue relationships.")
+        print(f" Created {created_edges} CoVenue relationships")
 
 
     def add_coauthor_edge(self):
@@ -220,7 +220,7 @@ class Neo4jImportData:
                     created_edges += 1
                     #print(f" Created {created_edges} relationships.")
             
-        print(f" Created {created_edges} CoAuthor relationships.")
+        print(f" Created {created_edges} CoAuthor relationships")
 
     def cotitle_pairs_tfidf(self, min_similarity=0.60, max_features=10000):
         """
@@ -271,16 +271,20 @@ class Neo4jImportData:
                 a=a, b=b, sim=float(sim), database=self.db
             )
             created += 1
-        print(f"Created {created} COTITLE edges (cosine ≥ {threshold}).")
+        print(f"Created {created} cotitle relationships (cosine ≥ {threshold})")
 
 
-if __name__ == "__main__":
+def main(URI, USER, PASSWORD, DB, PATH):
+    """
+    Creates neo4j graph in database with publication node and coauthor, cotitle, covenue relationships
 
-    URI = "neo4j://127.0.0.1:7687"
-    USER = "neo4j"
-    PASSWORD = "and123$$"
-    DB = "neo4j"
-    PATH = "/Users/gracewang/Documents/UROP_Summer_2025/neo4j_and/cache/David Nathan_data.json"
+    Args
+        uri (str): Neo4j URI (e.g. bolt://localhost:7687)
+        user (str): instance username
+        password (str): instance password
+        db (str): database name
+        data_path (str): Path to JSON created by neo4j_data.py (cache/<Author>_data.json)
+    """
 
     imp = Neo4jImportData(URI, USER, PASSWORD, DB, PATH)
 
@@ -299,3 +303,16 @@ if __name__ == "__main__":
     # Metrics
     imp.node_count()
     imp.edge_count()
+
+
+
+
+if __name__ == "__main__":
+
+    URI = "neo4j://127.0.0.1:7687"
+    USER = "neo4j"
+    PASSWORD = "and123$$"
+    DB = "neo4j"
+    PATH = "/Users/gracewang/Documents/UROP_Summer_2025/neo4j_and/cache/David Nathan_data.json"
+
+    main(URI, USER, PASSWORD, DB, PATH)
