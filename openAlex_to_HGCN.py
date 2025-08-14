@@ -94,6 +94,7 @@ def fetch_author_data(author_name, max_results=200):
                 
                 # Extract needed data
                 author_id = author["id"].replace("https://openalex.org/", "")
+                print(author_id)
                 authors_data[author_id] = {
                     "id": author_id,
                     "name": author.get("display_name", ""),
