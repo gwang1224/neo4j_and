@@ -160,7 +160,7 @@ class Neo4jImportData:
                     #print(f"Trying edge between {pub1} and {pub2}, venue: {id_venue[pub1]}")
                     self.driver.execute_query("""
                         MATCH (p1:PUBLICATION {id: $pub_name1}), (p2:PUBLICATION {id: $pub_name2})
-                        CREATE (p1) - [:COVENUE {venue: $pub_venue}] -> (p2)
+                        CREATE (p1) - [:COVENUE {venue: $pub_venue, weight: 1.0}] -> (p2)
                     """,
                     pub_name1 = pub1, 
                     pub_name2 = pub2, 
@@ -303,8 +303,6 @@ def main(URI, USER, PASSWORD, DB, PATH):
     # Metrics
     imp.node_count()
     imp.edge_count()
-
-
 
 
 if __name__ == "__main__":
