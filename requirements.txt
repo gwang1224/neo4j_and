@@ -4,3 +4,4 @@ json
 python-louvain
 networkx
 collections
+igraph
